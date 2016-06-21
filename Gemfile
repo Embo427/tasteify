@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
+ruby '2.3.0'
 
 #Core
 gem 'rails', '>= 5.0.0.rc1', '< 5.1'
-gem 'sqlite3'
 gem 'puma', '~> 3.0'
 gem 'lograge'
 gem 'rails_config'
+gem 'pry-rails'
 
 #Front End
 gem 'sass-rails', '~> 5.0'
@@ -22,15 +23,20 @@ gem 'jbuilder', '~> 2.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'pry-rails'
   gem 'pry-byebug'
   gem 'binding_of_caller'
   gem 'better_errors'
   gem 'annotate'
+  gem 'sqlite3'
 end
 
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
 end
