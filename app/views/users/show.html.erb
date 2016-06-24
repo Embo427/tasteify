@@ -1,2 +1,38 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1> Hi, <%= @user.name %> </h1>
+
+<div class='row'>
+  <div class='col-md-6'>
+    <table class='table table-bordered sortable'>
+      <thead>
+        <tr>
+          <th data-field='Checkbox'>Checkbox</th>
+          <th data-field='Playlists'>Playlists</th>
+          <th data-field='Your Rank'>Your Rank</th>
+          <th data-field='Songs'>Songs</th>
+          <th data-field='Subscribers'>Subscribers</th>
+          <th data-field='Listens'>Listens</th>
+          <th data-field='Genres'>Genres</th>
+          <th data-field='Collaborative'>Collaborative</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user.playlists.each do |playlist| %>
+        <% num_songs = playlist.songs.count %>
+        <% song_list = (0..num_songs-1).to_a %>
+        <% genres = [] %>
+        <% song_list.each {|song| genres << playlist.songs[song].genre} %>
+        <tr>
+          <td> x </td>
+          <td> <%= link_to playlist.title, playlist_path(playlist), class: 'btn' %> </td>
+          <td> 1 </td>
+          <td> <%= num_songs %> </td>
+          <td> <%= playlist.subscriber_count %> </td>
+          <td> <%= playlist.listen_count %> </td>
+          <td> <%= genres.uniq.count %> </td>
+          <td> <%= playlist.collaborative %> </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

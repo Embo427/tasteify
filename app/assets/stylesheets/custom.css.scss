@@ -1,6 +1,12 @@
 @import 'bootstrap';
+@import 'bootstrap-sprockets';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+/*
+ *= require_tree .
+ *= require_self
+*/
 
 //Fonts
 @import url(https://fonts.googleapis.com/css?family=Pacifico);

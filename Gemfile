@@ -13,9 +13,12 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-table-rails'
 gem 'simple_form'
 gem 'font-awesome-sass', '~> 4.6.2'
+gem 'autoprefixer-rails'
 
 #Other
 gem 'turbolinks', '~> 5.x'
