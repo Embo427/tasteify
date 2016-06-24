@@ -4,7 +4,7 @@ class PlaylistsController < ApplicationController
   end
 
   def show
-    @playlsit = get_playlist
+    @playlist = get_playlist
   end
 
   def new

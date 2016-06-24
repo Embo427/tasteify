@@ -1,5 +1,5 @@
-<h1>Artist Page</h1>
-<p> Songs by <%= @artist.name %> </p>
-<p><%= @artist.songs.each do |song| %>
+<h1>Playlist Page</h1>
+<p> Songs in <%= @playlist.name %> </p>
+<p><%= @playlist.songs.each do |song| %>
     <%= song.id %>. <%=song.title %> </p>
     <% end %>
