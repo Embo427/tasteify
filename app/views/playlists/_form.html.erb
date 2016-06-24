@@ -1,0 +1,11 @@
+<div class='panel-body'>
+  <%= simple_form_for @playlist do |f| %>
+    <%= f.input :title, label: false, input_html: {placeholder: 'Playlist Name'} %>
+    <!-- owner -->
+    <%= f.input :collaborative, label: false%>
+    <!-- listen_count -->
+    <!-- song_count -->
+    <!-- song_added_by -->
+    <%= f.submit 'Submit'.html_safe, class: 'btn btn-lg btn-danger'%>
+  <% end %>
+</div>

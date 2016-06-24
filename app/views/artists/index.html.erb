@@ -1,7 +1,8 @@
 <h1>Artists</h1>
 <p> Here is a list of all the artists </p>
 <p> <%= @artists.each do |artist| %> </p>
-  <p> <%= artist.name %> </p>
-  <p> <%= artist.genre %> </p>
-  <p> <%= artist.bio %> </p>
+    <p> <%= artist.name %> </p>
+    <p> <%= artist.genre %> </p>
+    <p> <%= artist.bio %> </p>
+    <p> <%= link_to 'Artist Page', artist_path(artist), class: 'btn btn-lg'%></p>
 <p> <% end %> </p>

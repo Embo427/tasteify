@@ -1,0 +1,7 @@
+<div class='panel-body'>
+  <%= simple_form_for @artist do |f| %>
+    <%= f.input :name, label: false, input_html: {placeholder: 'Artist Name'} %>
+    <%= f.input :bio, label: false, as: :text, input_html: {placeholder: 'Artist Bio'} %>
+    <%= f.submit 'Submit'.html_safe, class: 'btn btn-lg btn-danger'%>
+  <% end %>
+</div>

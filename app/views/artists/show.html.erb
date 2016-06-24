@@ -1,2 +1,5 @@
 <h1>Artist Page</h1>
-<p><%= @artist.name %> </p>
+<p> Songs by <%= @artist.name %> </p>
+<p><%= @artist.songs.each do |song| %>
+    <%= song.id %>. <%=song.title %> </p>
+    <% end %>

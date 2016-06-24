@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160621025738) do
+ActiveRecord::Schema.define(version: 20160624051625) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "name"
@@ -19,6 +19,57 @@ ActiveRecord::Schema.define(version: 20160621025738) do
     t.string   "genre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "playlist_songs", force: :cascade do |t|
+    t.integer  "playlist_id"
+    t.integer  "song_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["playlist_id"], name: "index_playlist_songs_on_playlist_id"
+    t.index ["song_id"], name: "index_playlist_songs_on_song_id"
+  end
+
+  create_table "playlists", force: :cascade do |t|
+    t.string   "title"
+    t.string   "owner"
+    t.boolean  "collaborative"
+    t.integer  "listen_count"
+    t.integer  "song_count"
+    t.string   "song_added_by"
+    t.date     "song_added_date"
+    t.integer  "subscriber_count"
+    t.integer  "genre_count"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "user_id"
+  end
+
+  create_table "playlists_artists", id: false, force: :cascade do |t|
+    t.integer "playlist_id"
+    t.integer "artist_id"
+    t.index ["artist_id"], name: "index_playlists_artists_on_artist_id"
+    t.index ["playlist_id"], name: "index_playlists_artists_on_playlist_id"
+  end
+
+  create_table "songs", force: :cascade do |t|
+    t.string   "title"
+    t.string   "genre"
+    t.integer  "track_length"
+    t.integer  "artist_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email_address"
+    t.string   "password"
+    t.string   "username"
+    t.string   "image"
+    t.integer  "playlist_count"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
 end
