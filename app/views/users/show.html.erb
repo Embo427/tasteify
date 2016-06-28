@@ -1,38 +1,68 @@
-<h1> Hi, <%= @user.name %> </h1>
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-md-6'>
+      <div class='panel panel-success'>
+        <div class='panel-heading'>
+          <h2 class='panel-title'> Hi, <%= @user.name %> </h2>
+        </div>
+        <div class='panel-body'>
+          <p> Your picture </p>
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+        </div>
+      </div>
+    </div>
+    <div class='col-md-6'>
+      <div class='panel panel-success'>
+        <div class='panel-heading'>
+          <h2 class='panel-title'>Your Stats</h2>
+        </div>
+        <div class='panel-body'>
+          <p> You have created <%=@user.playlists.count%> playlists </p>
+          <p> You are subscribed to 45 playlists </p>
+          <p> Your favorite genres are Soul and House </p>
+          <p> You are the top contributor for 3 playlists </p>
+          <p> You average 9.7 listens per song </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<div class='row'>
-  <div class='col-md-6'>
-    <table class='table table-bordered sortable'>
-      <thead>
-        <tr>
-          <th data-field='Checkbox'>Checkbox</th>
-          <th data-field='Playlists'>Playlists</th>
-          <th data-field='Your Rank'>Your Rank</th>
-          <th data-field='Songs'>Songs</th>
-          <th data-field='Subscribers'>Subscribers</th>
-          <th data-field='Listens'>Listens</th>
-          <th data-field='Genres'>Genres</th>
-          <th data-field='Collaborative'>Collaborative</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @user.playlists.each do |playlist| %>
-        <% num_songs = playlist.songs.count %>
-        <% song_list = (0..num_songs-1).to_a %>
-        <% genres = [] %>
-        <% song_list.each {|song| genres << playlist.songs[song].genre} %>
-        <tr>
-          <td> x </td>
-          <td> <%= link_to playlist.title, playlist_path(playlist), class: 'btn' %> </td>
-          <td> 1 </td>
-          <td> <%= num_songs %> </td>
-          <td> <%= playlist.subscriber_count %> </td>
-          <td> <%= playlist.listen_count %> </td>
-          <td> <%= genres.uniq.count %> </td>
-          <td> <%= playlist.collaborative %> </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-md-12'>
+      <table class='table table-bordered sortable'>
+        <thead>
+          <tr>
+            <th data-field='Checkbox'>Checkbox</th>
+            <th data-field='Playlists'>Playlists</th>
+            <th data-field='Your Rank'>Your Rank</th>
+            <th data-field='Songs'>Songs</th>
+            <th data-field='Subscribers'>Subscribers</th>
+            <th data-field='Listens'>Listens</th>
+            <th data-field='Genres'>Genres</th>
+            <th data-field='Collaborative'>Collaborative</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user.playlists.each do |playlist| %>
+          <% num_songs = playlist.songs.count %>
+          <% song_list = (0..num_songs-1).to_a %>
+          <% genres = [] %>
+          <% song_list.each {|song| genres << playlist.songs[song].genre} %>
+          <tr>
+            <td> x </td>
+            <td> <%= link_to playlist.title, playlist_path(playlist), class: 'btn' %> </td>
+            <td> 1 </td>
+            <td> <%= num_songs %> </td>
+            <td> <%= playlist.subscriber_count %> </td>
+            <td> <%= playlist.listen_count %> </td>
+            <td> <%= genres.uniq.count %> </td>
+            <td> <%= playlist.collaborative %> </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
