@@ -23,6 +23,8 @@ gem 'autoprefixer-rails'
 #Other
 gem 'turbolinks', '~> 5.x'
 gem 'jbuilder', '~> 2.0'
+gem 'omniauth-spotify'
+gem 'figaro'
 
 group :development, :test do
   gem 'byebug', platform: :mri
