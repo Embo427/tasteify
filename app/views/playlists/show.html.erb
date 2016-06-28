@@ -1,5 +1,135 @@
-<h1>Playlist Page</h1>
-<p> Songs in <%= @playlist.title %> </p>
-<p><% @playlist.songs.each do |song| %>
-    <%= song.playlist_songs.ids[0] %>. <%=song.title %> </p>
-    <% end %>
+<h1><%= @playlist.title %> </h1>
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-md-6'>
+      <div class='panel panel-success'>
+        <div class='panel-heading'>
+          <h2 class='panel-title'> Top Songs </h2>
+        </div>
+        <div class='panel-body'>
+          <p> Something in here <p>
+        </div>
+      </div>
+    </div>
+    <div class='col-md-6'>
+      <div class='panel panel-success'>
+        <div class='panel-heading'>
+          <h2 class='panel-title'>Stats for <%= @playlist.title %></h2>
+        </div>
+        <div class='panel-body'>
+          <p> This playlist has 2 genres </p>
+          <p> Conan listens to your songs the most </p>
+          <p> Danny listens to your songs the least
+          <p> Danny's favorite genres are Soul and House </p>
+          <p> You should add something from the Soul genre </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-md-6'>
+      <h2 class='sub-header'>Top Songs</h2>
+      <table class='table table-bordered sortable'>
+        <thead>
+          <tr>
+            <th data-field='Position'>Position</th>
+            <th data-field='Title'>Title</th>
+            <th data-field='Position'>Listens</th>
+            <th data-field='Avg Listens'>Avg Listens</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @playlist.songs.each do |song| %>
+            <tr>
+              <td> <%= song.playlist_songs.ids[0] %> </td>
+              <td> <%= song.title %> </td>
+              <td> 4 </td>
+              <td> 9.7 </td>
+            </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
+    <div class='col-md-6'>
+      <h2 class='sub-header'>Top Contributors</h2>
+      <table class='table table-bordered sortable'>
+        <thead>
+          <tr>
+            <th data-field='Position'>Position</th>
+            <th data-field='Name'>Name</th>
+            <th data-field='Contributions'>Contributions</th>
+            <th data-field='Avg Listens'>Avg Listens</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- need subscriber model, and iterate through playlist subscribers -->
+            <tr>
+              <td> 1 </td>
+              <td> Emmett </td>
+              <td> 50 </td>
+              <td> 9.7 </td>
+            </tr>
+            <tr>
+              <td> 2 </td>
+              <td> Conan </td>
+              <td> 30 </td>
+              <td> 5.6 </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class='col-md-6'>
+      <h2 class='sub-header'>Top Listeners</h2>
+      <table class='table table-bordered sortable'>
+        <thead>
+          <tr>
+            <th data-field='Position'>Position</th>
+            <th data-field='Name'>Name</th>
+            <th data-field='Listens'>Listens</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- need listens model, and to iterate through playlist subscriber listens -->
+            <tr>
+              <td> 1 </td>
+              <td> Emmett </td>
+              <td> 300 </td>
+            </tr>
+            <tr>
+              <td> 2 </td>
+              <td> Conan </td>
+              <td> 250 </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class='col-md-6'>
+      <h2 class='sub-header'>Top Genres</h2>
+      <table class='table table-bordered sortable'>
+        <thead>
+          <tr>
+            <th data-field='Position'>Position</th>
+            <th data-field='Genre'>Genre</th>
+            <th data-field='Songs'>Songs</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- need listens model, and to iterate through playlist subscriber listens -->
+            <tr>
+              <td> 1 </td>
+              <td> Soul </td>
+              <td> 30 </td>
+            </tr>
+            <tr>
+              <td> 2 </td>
+              <td> Pop </td>
+              <td> 20 </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
