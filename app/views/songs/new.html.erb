@@ -1,2 +1,68 @@
-<h1>Songs#new</h1>
-<p>Find me in app/views/songs/new.html.erb</p>
+<h1>Add a Song</h1>
+<div class='row'>
+  <div class='col-md-6'>
+    <div class='panel panel-success'>
+      <div class='panel-heading'>
+        <h2 class='panel-title'> Danny's Stats </h2>
+      </div>
+      <div class='panel-body'>
+        <p> Something in here <p>
+      </div>
+    </div>
+  </div>
+  <div class='col-md-6'>
+    <div class='panel panel-success'>
+      <div class='panel-heading'>
+        <h2 class='panel-title'> For Danny </h2>
+      </div>
+      <div class='panel-body'>
+        <p> Let's help you find some songs that Danny will like </p>
+        <p> He seems to like R&B and Pop </p>
+        <p> He listens to a lot of female singers </p>
+        <p> He listens the most in the morning </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='row'>
+  <div class='col-md-4'>
+    <div class='panel panel-success'>
+      <div class="panel-heading">
+        <h2 class='panel-title'> Genre </h2>
+      </div>
+      <div class='panel-body'>
+        <h3> Select a genre for recommendations </h3>
+        <p> R&B </p>
+        <p> Pop </p>
+        <!-- make these clickable -->
+    </div>
+  </div>
+  </div>
+  <div class='col-md-4'>
+    <h2 class='sub-header'>Recommended Songs</h2>
+    <table class='table table-bordered sortable'>
+      <thead>
+        <tr>
+          <th data-field='Checkbox'>Checkbox</th>
+          <th data-field='Position'>Position</th>
+          <th data-field='Title'>Title</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td> x </td>
+            <td> 1 </td>
+            <td> Song 1 </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class='col-md-4'>
+    <div class='panel panel-success'>
+      <div class="panel-heading">
+        <h2 class='panel-title'> New Song </h2>
+      </div>
+     <%=render 'form' %>
+    </div>
+  </div>
+</div>
