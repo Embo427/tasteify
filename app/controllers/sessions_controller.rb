@@ -1,16 +1,16 @@
 class SessionsController < ApplicationController
   def create
-    raise request.env['omniauth.auth'].to_json
-    # begin
-    #   auth_hash = request.env['omniauth.auth']
-    #   binding.pry
-    #   @user = User.from_omniauth(auth_hash)
-    #   session[:user_id] = @user.id
-    #   flash[:success] = "Welcome, #{@user.name}"
-    # rescue
-    #   flash[:warning] = "There was an error"
-    # end
-    # redirect_to root_path
+    # render text: request.env['omniauth.auth'].to_json
+    begin
+      auth_hash = request.env['omniauth.auth']
+      # @user = RSpotify::User.new(auth_hash)
+      @user = User.from_omniauth(auth_hash)
+      session[:user_id] = @user.id
+      flash[:success] = "Welcome, #{@user.name}"
+    rescue
+      flash[:warning] = "There was an error"
+    end
+    redirect_to root_path
   end
 
   def destroy
@@ -20,5 +20,7 @@ class SessionsController < ApplicationController
     end
     redirect_to root_path
     end
+
+
 
 end
