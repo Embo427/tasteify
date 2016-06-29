@@ -1,0 +1,8 @@
+<div class='panel-body'>
+  <%= simple_form_for @song do |f| %>
+    <%= f.input :title, label: false, input_html: {placeholder: 'Song Title'} %>
+    <%= f.input :genre, label: false, as: :text, input_html: {placeholder: 'Genre'} %>
+    <%= f.input :artist_id, label: false, input_html: {placeholder: 'Artist ID'} %>
+    <%= f.submit 'Submit'.html_safe, class: 'btn btn-lg btn-danger'%>
+  <% end %>
+</div>
