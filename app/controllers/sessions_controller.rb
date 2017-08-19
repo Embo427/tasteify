@@ -4,7 +4,12 @@ class SessionsController < ApplicationController
     begin
       auth_hash = request.env['omniauth.auth']
       @user = RSpotify::User.new(auth_hash)
-      session[:user_id] = @user.id
+      user_info = @user.to_hash
+      controller = UsersController.new
+      binding.pry
+      controller.create({:name => user_info["display_name"],
+       :email_address => user_info["email"]})
+      session[:user_id] = @user.id #update this to link sessions
       flash[:success] = "Welcome, #{@user.display_name}"
     rescue
       flash[:warning] = "There was an error"
