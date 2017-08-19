@@ -3,12 +3,13 @@
     <div class='col-md-6'>
       <div class='panel panel-success'>
         <div class='panel-heading'>
-          <h2 class='panel-title'> Hi, <%= @user.name %> </h2>
+          <!-- <h2 class='panel-title'> Hi, <%= @user.name %> </h2> -->
+          <h2 class='panel-title'> Hi, <%= @user.display_name %> </h2>
         </div>
-        <div class='panel-body'>
+        <!-- <div class='panel-body'>
           <%=image_tag current_user.image%>
-          <!-- <img  width="200" height="200" class="img-responsive"> -->
-        </div>
+          <img  width="200" height="200" class="img-responsive">
+        </div> -->
       </div>
     </div>
     <div class='col-md-6'>
@@ -17,7 +18,7 @@
           <h2 class='panel-title'>Your Stats</h2>
         </div>
         <div class='panel-body'>
-          <p> You have created <%=@user.playlists.count%> playlists </p>
+          <!-- <p> You have created <%=@user.playlists.count%> playlists </p> -->
           <p> You are subscribed to 45 playlists </p>
           <p> Your favorite genres are Soul and House </p>
           <p> You are the top contributor for 3 playlists </p>
@@ -28,7 +29,7 @@
   </div>
 </div>
 
-<div class='container-fluid'>
+<!-- <div class='container-fluid'>
   <div class='row'>
     <div class='col-md-12'>
       <table class='table table-bordered sortable'>
@@ -65,4 +66,4 @@
       </table>
     </div>
   </div>
-</div>
+</div> -->
