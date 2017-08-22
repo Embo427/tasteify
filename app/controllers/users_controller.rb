@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def index
+    current_user = User.find_by_id(session[:user_id])
     @users = User.all
   end
 
@@ -18,7 +19,20 @@ class UsersController < ApplicationController
    else
      render 'new' #render page again and tell user what's wrong
    end
- end
+  end
+
+  def new_with_login(auth_hash)
+    @spotify_user = RSpotify::User.new(auth_hash)
+    find_or_create(@spotify_user)
+  end
+
+  def find_or_create(user_details)
+    new_user = User.find_or_create_by(username: user_details.id)
+    #add some logic to check for changed fields
+    new_user.update({name: user_details.display_name,
+     email_address: user_details.email})
+    new_user
+  end
 
   private
 
@@ -29,5 +43,4 @@ class UsersController < ApplicationController
   def get_user
     User.find(params[:id])
   end
-
 end
