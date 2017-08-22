@@ -1,12 +1,10 @@
 class SessionsController < ApplicationController
   def create
-    # render text: request.env['omniauth.auth'].to_json
     begin
       auth_hash = request.env['omniauth.auth']
-      # @user = RSpotify::User.new(auth_hash)
-      @user = User.from_omniauth(auth_hash)
-      session[:user_id] = @user.id
-      flash[:success] = "Welcome, #{@user.name}"
+      new_user = UsersController.new.new_with_login(auth_hash)
+      session[:user_id] = new_user.id
+      flash[:success] = "Welcome, #{new_user.name}"
     rescue
       flash[:warning] = "There was an error"
     end
